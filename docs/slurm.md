@@ -1,16 +1,16 @@
-# SLURM <!-- {docsify-ignore} -->
-This page serves as point of introduction to understanding and making best use of SLURM. 
+# Slurm <!-- {docsify-ignore} -->
+This page serves as point of introduction to understanding and making best use of Slurm. 
 
-SLURM is a scheduler is a free and open-source job scheduler for Linux and Unix-like kernels, used by many supercomputers and computer clusters.
+Slurm is a scheduler is a free and open-source job scheduler for Linux and Unix-like kernels, used by many supercomputers and computer clusters.
 
-SLURM serves the purpose of being the scheduler of jobs and the manager of the resources on both, MERCED and Pinnacles clusters. It does it in three ways: 
+Slurm serves the purpose of being the scheduler of jobs and the manager of the resources on both, MERCED and Pinnacles clusters. It does it in three ways: 
 - Provides exclusive and/or non-exclusive access to the resources on the compute nodes to the users for a certain amount of time. 
 - Provides a framework to start, execute, and check the work on the set of allocated compute nodes.
-- SLURM manages the queue of pending jobs based on the availability of resources.
+- Slurm manages the queue of pending jobs based on the availability of resources.
 
 
 
-## SLURM Commands
+## Slurm Commands
 
 Basic Slurm Commands to interact via the command line interface with the queueing and resource scheduler/ 
 The table below shows the list and descriptions of the mostly used Slurm commands.
@@ -25,7 +25,7 @@ The table below shows the list and descriptions of the mostly used Slurm command
 | `sacct`    | `sacct`                       | Show information about current and previous jobs.        |
 | `sinfo`    | `sinfo`                       | Get information about the resources on available nodes that make up the HPC cluster. |
 
-### `sbatch` Command
+### `sbatch` Command <!-- {docsify-ignore} -->
 
 The `sbatch` command is used to sumbit job scripts to the SLURM scheduler to be placed on the respective queue and to then begin with the resources are available. 
 
@@ -55,9 +55,9 @@ This line should always be added at the very top of your SBATCH/Slurm script.
     !/bin/bash
 
 
-### Common `SBATCH` Directives in scripts 
+### Common `SBATCH` Directives in scripts <!-- {docsify-ignore} -->
 
-The `SBATCH` directives must be used in the following manner for SLURM to properly recognize them: 
+The `SBATCH` directives must be used in the following manner for Slurm to properly recognize them: 
 
 Template:
     #SBATCH --directive
@@ -84,7 +84,7 @@ Common Options
 
 
 
-!> Lines that begin with #SBATCH in all caps is treated as a directive by Slurm. This means that to comment out a Slurm command, you need to append a second another pound sign # to the SBATCH command (#SBATCH means Slurm command, # #SBATCH means comment).
+!> Lines that begin with `#SBATCH` in all caps is treated as a directive by Slurm. This means that to comment out a Slurm command, you need to append a second another pound sign # to the SBATCH command (#SBATCH means Slurm command, # #SBATCH means comment).
 Final Part of the job submssion script is to include: 
 
     --export=all 
@@ -92,11 +92,11 @@ Final Part of the job submssion script is to include:
 Conclude by including your list of commands to execute your script.
 
 
-### Job Examples 
+### Job Examples <!-- {docsify-ignore} -->
 
 Job Examples can be found [here](running_jobs.md)
 
-### SBATCH directives for job script
+### SBATCH directives for job script <!-- {docsify-ignore} -->
 
 | Directives      | Description   |
 |-----------------|---------------|
@@ -112,11 +112,11 @@ Job Examples can be found [here](running_jobs.md)
 | `--get-user-env` | Tells `sbatch` to retrieve the login environment variables. Be aware that any environment variables already set in `sbatch` environment will take precedence over any environment variables in the user’s login environment. Clear any environment variables before calling `sbatch` that you don’t want to be propagated to the spawned program. |
 
 
-### Slurm Output Environment Variables
+### Slurm Output Environment Variables <!-- {docsify-ignore} -->
 
 When a job scheduled by Slurm starts, it needs to know some information about its execution environment. For example, It needs to know the working directory, and what nodes allocated to it. Slurm passes this information to the running job via what so-called environment variables. The following is the most common-used environment variable.
 
-| Slurm Environment Variable | Description                                       |
+| SLURM Environment Variable | Description                                       |
 |----------------------------|---------------------------------------------------|
 | `SLURM_CLUSTER_NAME`       | Name of the cluster on which the job is executing.|
 | `SLURM_CPUS_ON_NODE`       | Number of CPUs on the allocated node.             |
@@ -145,9 +145,9 @@ When a job scheduled by Slurm starts, it needs to know some information about it
 | `SLURM_SUBMIT_HOST`        | The Hostname of the computer from which SBATCH was invoked. |
 | `SLURM_TASK_PID`           | The process ID of the corresponding task. |
 
-## SLURM - Job Management 
+## Slurm - Job Management 
 
-Job management is critical before running or scaling jobs and computations within a HPC enviroment. We have created a manual page that can be found [here](Manage_job.md). The documentation goes over common SLURM commands that help debug job errors and overall performance using `sacct` and `scontrol`. 
+Job management is critical before running or scaling jobs and computations within a HPC enviroment. We have created a manual page that can be found [here](Manage_job.md). The documentation goes over common Slurm commands that help debug job errors and overall performance using `sacct` and `scontrol`. 
 
 
 ## Job Arrays 

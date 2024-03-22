@@ -31,7 +31,7 @@
   - [HPC Vocabulary](hpc_vocab.md)
   - [Workshops](software_carpentry.md)
   - [HPC training material](hpc_training.md)
-  - [Introduction to SLURM](slurm.md)
+  - [SLURM](slurm.md)
   - [Office hour Q/A](office_hour.md)
   - [Cloud resource](cloud.md)
   - [Pilot Jupyterhub](jupyterhub.md)
